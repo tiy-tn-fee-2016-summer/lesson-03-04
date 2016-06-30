@@ -11,7 +11,7 @@ function createTile(name, cuteness, weight) {
     </div>
     <h2 class="animal-tile__title">${name}</h2>
     <div class="animal-tile__stats">
-      <p>Cuteness: <span class="animal-tile__cuteness">${cuteness}</span></p>
+      <p>Cuteness: <input class="animal-tile__cuteness" value="${cuteness}"></p>
       <p>Weight: <span class="animal-tile__weight">${weight}</span></p>
     </div>
     <div class="animal-tile__actions">
