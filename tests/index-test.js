@@ -28,9 +28,7 @@ test('why doesn\'t qunit play nice today', (assert) => {
   assert.ok(true, 'it is running');
 });
 
-function cutenessPerPound(cuteness, weight) {
-  return (cuteness / weight).toPrecision(1);
-}
+const cutenessPerPound = require('cuteness-per-pound');
 
 test('it finds cuteness per pound', (assert) => {
   assert.equal(cutenessPerPound(10, 10), 1, 'probably the cutest thing in the world');
@@ -38,11 +36,7 @@ test('it finds cuteness per pound', (assert) => {
   assert.equal(cutenessPerPound(1, 3), 0.3, 'it rounds to the nearest tenth');
 });
 
-function findCuteness(tile) {
-  const input = tile.querySelector('.animal-tile__cuteness');
-
-  return input.value;
-}
+const findCuteness = require('find-cuteness');
 
 test('it can find the cuteness from an HTML element', (assert) => {
   const cat = createTile('Cat', 1, 2);
@@ -52,11 +46,7 @@ test('it can find the cuteness from an HTML element', (assert) => {
   assert.equal(findCuteness(dog), 100);
 });
 
-const findWeight = function (tile) {
-  const span = tile.querySelector('.animal-tile__weight');
-
-  return span.innerText;
-};
+const findWeight = require('find-weight');
 
 test('it can find the weight from an HTML element', (assert) => {
   const cat = createTile('Cat', 1, 2);
@@ -66,11 +56,7 @@ test('it can find the weight from an HTML element', (assert) => {
   assert.equal(findWeight(dog), 50);
 });
 
-function showScore(tile, score) {
-  const texas = tile.querySelector('.animal-tile__result');
-
-  texas.innerText = score;
-}
+const showScore = require('show-score');
 
 test('it can show a new cuteness score', (assert) => {
   const cat = createTile('Cat', 1, 2);
@@ -85,25 +71,7 @@ test('it can show a new cuteness score', (assert) => {
   assert.equal(dogResult, '10');
 });
 
-function setupTile(tile) {
-  // Find a button in the current tile
-  const btn = tile.querySelector('.btn');
-
-  // This is the stuff to do after a click
-  const afterClick = () => {
-    // Find the cuteness within our tile
-    const cuteness = findCuteness(tile);
-    // Find the weight within our tile
-    const weight = findWeight(tile);
-    // Calculate the score
-    const score = cutenessPerPound(cuteness, weight);
-    // call showScore
-    showScore(tile, score);
-  };
-
-  // Setup work when teh button is clicked
-  btn.addEventListener('click', afterClick);
-}
+const setupTile = require('setup-tile');
 
 test('it recalculates the cuteness score when the button is clicked', (assert) => {
   const cat = createTile('Cat', 1, 2);
