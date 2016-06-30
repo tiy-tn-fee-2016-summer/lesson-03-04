@@ -24,6 +24,10 @@ function createTile(name, cuteness, weight) {
   return tile;
 }
 
+test('why doesn\'t qunit play nice today', (assert) => {
+  assert.ok(true, 'it is running');
+});
+
 test('it finds cuteness per pound', (assert) => {
   assert.equal(cutenessPerPound(10, 10), 1, 'probably the cutest thing in the world');
   assert.equal(cutenessPerPound(1, 2), 0.5);
