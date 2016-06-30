@@ -4,3 +4,82 @@
 // $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 // @import 'font-awesome';
 @import 'box-sizing';
+
+$gutter: 1rem;
+
+body {
+  margin: 0;
+  background: #546e7a;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.app {
+  height: 100vh;
+  padding: $gutter;
+  overflow-y: auto;
+}
+
+.container {
+  max-width: 60rem;
+  margin: auto;
+}
+
+.animals {
+  display: flex;
+  margin: -$gutter;
+  flex-wrap: wrap;
+
+  &__item {
+    flex-grow: 1;
+    box-shadow: 0.4rem 0.4rem 0.2rem rgba(20, 20, 20, 0.4),
+      0.2rem 0.2rem 0.8rem rgba(20, 20, 20, 0.2);
+    width: calc(50% - #{$gutter} - #{$gutter});
+    min-width: 15rem;
+    margin: $gutter;
+    background: #fff;
+  }
+}
+
+.animal-tile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: $gutter;
+
+  &__pic {
+    width: 100%;
+  }
+
+  &__pic-frame {
+    margin: -$gutter;
+  }
+
+  &__stats {
+    flex-grow: 1;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 (-$gutter) (-$gutter);
+    padding: ($gutter / 2) $gutter;
+    border-top: 0.1rem solid #eceff1;
+  }
+}
+
+.btn {
+  font-size: 1rem;
+  padding: ($gutter / 2) $gutter;
+  border: 0;
+  outline: 0;
+  background: #a7ffeb;
+}
